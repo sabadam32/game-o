@@ -9,7 +9,7 @@ Learning Godot, Unity, or even PyGame for a firt attempt can be overwhelming.  I
 
 ## Installation
 
-Clone the repo and follow the steps to install the arcade library in your environment.
+Clone the repo
 
 ```zsh
 # Start in parent directory you want to use for this project then run
@@ -17,19 +17,7 @@ git clone git@github.com:sabadam32/game-o.git
 cd game-0
 ```
 
-setup a virtualenv with Python 3.11.8.  I use pyenv to install versions and setup environments.  Use whatever tools you feel comfortable with.
-
-Pyenv
-```zsh
-# To install python if you do not already have it
-pyenv install 3.11.8
-
-# Setup a virtual environment for developing with arcade library (can be used by multiple arcade game projects)
-pyenv virtualenv 3.11.8 arcade-games
-
-# Set the python version for this project folder to arcade-games
-pyenv local arcade-games
-```
+Now follow the installation instructions for the [arcade library](https://api.arcade.academy/en/latest/install/index.html) and it's dependencies on your system.
 
 ## Usage example
 ```zsh

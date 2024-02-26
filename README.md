@@ -1,81 +1,40 @@
-# Product Name
-> Short blurb about what your product does.
+# Game O
 
-![GitHub License](https://img.shields.io/github/license/sabadam32/game-o)
+![GitHub License](https://img.shields.io/github/license/sabadam32/game-o?color=ff5733&labelColor=0e17b8)
 ![Python Version from PEP 621 TOML][version-url]
-[![Downloads Stats][npm-downloads]][npm-url]
 
-One to two paragraph statement about your product and what it does.
+This is an interest project to learn programming with the arcade library.  My goal is to build a game toolset that is educational for entry level users.  
+Learning Godot, Unity, or even PyGame for a firt attempt can be overwhelming.  I see this helping game jammers or teachers in classroom settings.  Also places like CoderDojo's would be a good spot for this type of thing.
 
-![](header.png)
 
 ## Installation
 
-OS X & Linux:
+Clone the repo and follow the steps to install the arcade library in your environment.
 
-```sh
-npm install my-crazy-module --save
+```zsh
+# Start in parent directory you want to use for this project then run
+git clone git@github.com:sabadam32/game-o.git
+cd game-0
 ```
 
-Windows:
+setup a virtualenv with Python 3.11.8.  I use pyenv to install versions and setup environments.  Use whatever tools you feel comfortable with.
 
-```sh
-edit autoexec.bat
+Pyenv
+```zsh
+# To install python if you do not already have it
+pyenv install 3.11.8
+
+# Setup a virtual environment for developing with arcade library (can be used by multiple arcade game projects)
+pyenv virtualenv 3.11.8 arcade-games
+
+# Set the python version for this project folder to arcade-games
+pyenv local arcade-games
 ```
 
 ## Usage example
-
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
-
-_For more examples and usage, please refer to the [Wiki][wiki]._
-
-## Development setup
-
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
-
-```sh
-make install
-npm test
+```zsh
+python game_o.py
 ```
 
-## Release History
-
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
-
-## Meta
-
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
-
-Distributed under the XYZ license. See ``LICENSE`` for more information.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
-## Contributing
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
-
 <!-- Markdown link & img dfn's -->
-[python-image]: https://img.shields.io/python/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
-[version-url]: https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fsabadam32%2Fgame-o%2Fmain%2Fpyproject.toml&style=flat-square&logo=python&logoColor=blue
-
-
+[version-url]: https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fsabadam32%2Fgame-o%2Fmain%2Fpyproject.toml&style=flat-square&logo=python&logoColor=ffde57&label=Python%20Version&labelColor=4584b6&color=ffde57&link=https%3A%2F%2Fwww.python.org%2Fdownloads%2Frelease%2Fpython-3118%2F

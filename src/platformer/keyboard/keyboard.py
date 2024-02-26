@@ -21,17 +21,15 @@ class KeyboardController:
         self.sprite = game_window.player_sprite
         self.height = game_window.height
         self.width = game_window.width
+        self.physics = game_window.physics_engine
+        self.jump_speed = game_window.jump_speed
         self.pressed = PressedKeys()
 
     def update_direction(self):
-        self.sprite.change_x = 0
-        self.sprite.change_y = 0
+        if self.pressed.up:
+            if self.physics.can_jump():
+                self.sprite.change_y = self.jump_speed
 
-        if self.pressed.up and not self.pressed.down:
-            self.sprite.change_y = self.speed
-        elif self.pressed.down and not self.pressed.up:
-            self.sprite.change_y = -self.speed
-        
         if self.pressed.left and not self.pressed.right:
             self.sprite.change_x = -self.speed
         elif self.pressed.right and not self.pressed.left:

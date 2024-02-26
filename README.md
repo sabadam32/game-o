@@ -4,7 +4,7 @@
 ![Python Version from PEP 621 TOML][version-url]
 
 This is an interest project to learn programming with the arcade library.  My goal is to build a game toolset that is educational for entry level users.  
-Learning Godot, Unity, or even PyGame for a firt attempt can be overwhelming.  I see this helping game jammers or teachers in classroom settings.  Also places like CoderDojo's would be a good spot for this type of thing.
+Learning Godot, Unity, or even PyGame for a first attempt can be overwhelming.  I see this helping game jammers or teachers in classroom settings.  Also places like CoderDojo's would be a good spot for this type of thing.
 
 
 ## Installation

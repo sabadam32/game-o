@@ -76,6 +76,6 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
 [wiki]: https://github.com/yourname/yourproject/wiki
-[version-url]: https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fsabadam32%2Fgame-o%2Fpyproject.toml&style=flat-square&logo=python&logoColor=blue
+[version-url]: https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fsabadam32%2Fgame-o%2Fmain%2Fpyproject.toml&style=flat-square&logo=python&logoColor=blue
 
 

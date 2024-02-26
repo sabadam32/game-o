@@ -52,8 +52,8 @@ class GameO(arcade.Window):
 
 
 def main():
-    window = GameO()
-    window.setup()
+    game = GameO()
+    game.setup()
     arcade.run()
 
 

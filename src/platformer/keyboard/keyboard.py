@@ -1,13 +1,4 @@
 from arcade.key import W, A, S, D
-
-
-class PressedKeys:
-
-    def __init__(self) -> None:
-        self.left = False
-        self.right = False
-        self.up= False
-        self.down = False
         
 
 class KeyboardController:
@@ -17,49 +8,22 @@ class KeyboardController:
         self.right = right
         self.up = up
         self.down = down
-        self.speed = game_window.player_speed
-        self.sprite = game_window.player_sprite
-        self.height = game_window.height
-        self.width = game_window.width
-        self.physics = game_window.physics_engine
-        self.jump_speed = game_window.jump_speed
-        self.pressed = PressedKeys()
+        self.window = game_window
 
-    def update_direction(self):
-        if self.pressed.up:
-            if self.physics.can_jump():
-                self.sprite.change_y = self.jump_speed
-
-        if self.pressed.left and not self.pressed.right:
-            self.sprite.change_x = -self.speed
-        elif self.pressed.right and not self.pressed.left:
-            self.sprite.change_x = self.speed
-
-    def move(self, key, is_pressed):
+    def key_pressed(self, key):
         if key == self.up:
-            self.pressed.up = is_pressed
-            self.update_direction()
+            if self.window.physics_engine.can_jump():
+                self.window.player_sprite.change_y = self.window.jump_speed
         elif key == self.left:
-            self.pressed.left = is_pressed
-            self.update_direction()
-        elif key == self.down:
-            self.pressed.down = is_pressed
-            self.update_direction()
+            self.window.player_sprite.change_x = -self.window.player_speed
         elif key == self.right:
-            self.pressed.right = is_pressed
-            self.update_direction()
+            self.window.player_sprite.change_x = self.window.player_speed
 
-
-    def constrain(self):
-        if self.sprite.left < 0:
-            self.sprite.left = 0
-        elif self.sprite.right > self.width - 1:
-            self.sprite.right = self.width - 1
-
-        if self.sprite.bottom < 0:
-            self.sprite.bottom = 0
-        elif self.sprite.top > self.height - 1:
-            self.sprite.top = self.height - 1
+    def key_released(self, key):
+        if key == self.left:
+            self.window.player_sprite.change_x = 0
+        elif key == self.right:
+            self.window.player_sprite.change_x = 0
 
 
 class WASD(KeyboardController):

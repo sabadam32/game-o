@@ -9,8 +9,8 @@ SCREEN_TITLE      = "Apple Harvest"
 CHARACTER_SCALING = 1
 TILE_SCALING      = .5
 SPEED             = 5
-GRAVITY           = 1.5
-JUMP_SPEED        = 20
+GRAVITY           = .8
+JUMP_SPEED        = 14
 
 
 class Assets:

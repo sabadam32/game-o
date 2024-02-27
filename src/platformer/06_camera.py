@@ -54,7 +54,11 @@ class GameO(arcade.Window):
             self.main_scene.add_sprite("Walls", wall)
 
         last_block = 1300-1300%64
-        coordinate_list = ((0, 96),(0, 160),(0, 224),(512, 96), (256, 96), (768, 96), (last_block, 96), (last_block, 160), (last_block, 224))
+        coordinate_list = (
+            (0, 96),(0, 160),(0, 224),
+            (512, 96), (256, 96), (768, 96),
+            (last_block, 96), (last_block, 160), (last_block, 224)
+        )
         for point in coordinate_list:
             crate = arcade.Sprite(Assets.CRATE, TILE_SCALING)
             crate.position = point
@@ -63,6 +67,7 @@ class GameO(arcade.Window):
         self.physics_engine = arcade.PhysicsEnginePlatformer(
             self.player_sprite, walls=self.main_scene["Walls"], gravity_constant=GRAVITY
         )
+
         self.camera = arcade.Camera(self.width, self.height)
         self.wasd = WASD(self)
 

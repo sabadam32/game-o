@@ -43,7 +43,7 @@ class GameO(arcade.Window):
         self.main_scene.add_sprite_list("Walls", True)
 
         self.player_sprite = arcade.Sprite(Assets.PLAYER, CHARACTER_SCALING)
-        self.player_sprite.position = 64, 128
+        self.player_sprite.position = 128, 64+self.player_sprite.height/2
         self.main_scene.add_sprite("Player", self.player_sprite)
         self.player_speed = SPEED
         self.jump_speed = JUMP_SPEED
@@ -54,7 +54,7 @@ class GameO(arcade.Window):
             self.main_scene.add_sprite("Walls", wall)
 
         last_block = 1300-1300%64
-        coordinate_list = ((512, 96), (256, 96), (768, 96), (last_block, 96), (last_block, 156), (last_block, 216))
+        coordinate_list = ((0, 96),(0, 160),(0, 224),(512, 96), (256, 96), (768, 96), (last_block, 96), (last_block, 160), (last_block, 224))
         for point in coordinate_list:
             crate = arcade.Sprite(Assets.CRATE, TILE_SCALING)
             crate.position = point

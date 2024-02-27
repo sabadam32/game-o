@@ -53,7 +53,8 @@ class GameO(arcade.Window):
             wall.position = x, 32
             self.main_scene.add_sprite("Walls", wall)
 
-        coordinate_list = ((512, 96), (256, 96), (768, 96))
+        last_block = 1300-1300%64
+        coordinate_list = ((512, 96), (256, 96), (768, 96), (last_block, 96), (last_block, 156), (last_block, 216))
         for point in coordinate_list:
             crate = arcade.Sprite(Assets.CRATE, TILE_SCALING)
             crate.position = point
@@ -80,7 +81,7 @@ class GameO(arcade.Window):
     def on_update(self, delta_time):
         self.physics_engine.update()
         self.center_camera_on_player()
-        
+
     def on_draw(self):
         self.clear()
         self.camera.use()

@@ -1,5 +1,5 @@
 from arcade.key import W, A, S, D
-        
+from arcade import play_sound       
 
 class KeyboardController:
 
@@ -21,6 +21,7 @@ class KeyboardController:
         if key == self.up:
             if self.window.physics_engine.can_jump():
                 self.window.player_sprite.change_y = self.window.jump_speed
+                play_sound(self.window.jump_sound)
         elif key == self.left:
             self.window.player_sprite.change_x = -self.window.player_speed
             self.left_pressed = True

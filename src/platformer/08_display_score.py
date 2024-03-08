@@ -10,16 +10,14 @@ CHARACTER_SCALING = .5
 TILE_SCALING      = .5
 COIN_SCALING      = .5
 SPEED             = 5
-GRAVITY           = .8
-JUMP_SPEED        = 14
+GRAVITY           = 1
+JUMP_SPEED        = 20
 
 
 class Assets:
-    WALL   = ":resources:images/tiles/grassMid.png"
+    MAP  = "src/assets/map/map.json"
+    ICON = "src/assets/images/icon.png"
     PLAYER = ":resources:images/animated_characters/robot/robot_idle.png"
-    CRATE  = ":resources:images/tiles/boxCrate_double.png"
-    ICON   = "src/assets/images/icon.png"
-    COIN   = ":resources:images/items/coinGold.png"
     
     COIN_SOUND = ":resources:sounds/coin1.wav"
     JUMP_SOUND = ":resources:sounds/jump1.wav"
@@ -41,44 +39,17 @@ class GameO(arcade.Window):
         self.player_sprite = None
         self.score = 0
         self.wasd = None
-    
+        self.map = None
+
         arcade.set_background_color(arcade.csscolor.ORANGE_RED)
         arcade.get_window().set_icon(image.load(Assets.ICON))
 
     def setup_player(self):
         self.main_scene.add_sprite_list("Player")
         self.player_sprite = arcade.Sprite(Assets.PLAYER, CHARACTER_SCALING)
-        self.player_sprite.position = 128, 64+self.player_sprite.height/2
+        self.player_sprite.position = 128, 128
         self.main_scene.add_sprite("Player", self.player_sprite)
         self.player_speed = SPEED
-
-    def setup_walls(self):
-        self.main_scene.add_sprite_list("Walls", True)
-        for x in range(0, 1300, 64):
-            wall = arcade.Sprite(Assets.WALL, TILE_SCALING)
-            wall.position = x, 32
-            self.main_scene.add_sprite("Walls", wall)
-
-    def setup_level_objects(self):
-
-        # Add Crates
-        last_block = 1300-1300%64
-        coordinate_list = (
-            (0, 96),(0, 160),(0, 224),
-            (512, 96), (256, 96), (768, 96),
-            (last_block, 96), (last_block, 160), (last_block, 224)
-        )
-        for point in coordinate_list:
-            crate = arcade.Sprite(Assets.CRATE, TILE_SCALING)
-            crate.position = point
-            self.main_scene.add_sprite("Walls", crate)
-        
-        # Add Coins
-        for x in range(384, 1300, 256):
-            coin = arcade.Sprite(Assets.COIN, COIN_SCALING)
-            coin.center_x = x
-            coin.center_y = 96
-            self.main_scene.add_sprite("Coins", coin)
 
     def setup(self):
 
@@ -86,12 +57,15 @@ class GameO(arcade.Window):
         self.jump_speed = JUMP_SPEED
         self.score = 0
 
-        self.setup_player()
-        self.setup_walls()
-        self.setup_level_objects()
+        layer_options = {"Platforms": {"use_spatial_hash": True,},}
+        self.map = arcade.load_tilemap(Assets.MAP, TILE_SCALING, layer_options)
+        self.main_scene = arcade.Scene.from_tilemap(self.map)
+        if self.map.background_color:
+            arcade.set_background_color(self.map.background_color)
 
+        self.setup_player()
         self.physics_engine = arcade.PhysicsEnginePlatformer(
-            self.player_sprite, walls=self.main_scene["Walls"], gravity_constant=GRAVITY
+            self.player_sprite, walls=self.main_scene["Platforms"], gravity_constant=GRAVITY
         )
 
         self.camera = arcade.Camera(self.width, self.height)
